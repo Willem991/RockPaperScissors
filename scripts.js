@@ -28,6 +28,8 @@ function computerplay(){
 let playAgain = true;
 let userThrow;
 let pcThrow;
+let yourScore = 0;
+let pcScore = 0;
 
 //Creating the loop
 
@@ -45,17 +47,21 @@ do{
     if(userThrow !== "scissors" && userThrow !== "rock" && userThrow !== "paper"){
         alert("You didn't choose rock or paper or scissors!")
     }else if(userThrow === pcThrow){
-        alert("the pc threw " + pcThrow + ". It's a tie!")
+        alert("The pc threw " + pcThrow + ". It's a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".")
     }else if(userThrow === "scissors" && pcThrow === "paper"){
-        alert("the pc threw " + pcThrow + ". You win!");
+        yourScore++;
+        alert("The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
     }else if(userThrow === "rock" && pcThrow === "scissors"){
-        alert("the pc threw " + pcThrow + ". You win!");
+        yourScore++;
+        alert("The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
     }else if(userThrow === "paper" && pcThrow === "rock"){
-        alert("the pc threw " + pcThrow + ". You win!");
+        yourScore++;
+        alert("The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
     }else if((userThrow === "scissors" && pcThrow === "rock") || (userThrow === "paper" && pcThrow === "scissors") || userThrow === "rock" && pcThrow === "paper"){
-        alert("the pc threw " + pcThrow + ". You lose!");
+        pcScore++;
+        alert("The pc threw " + pcThrow + ". You lose! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
     }else{
-        alert("the pc threw " + pcThrow + ". Its a tie");
+        alert("The pc threw " + pcThrow + ". Its a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
     }
 
     if(!confirm("Would you like to play again?")){
