@@ -23,25 +23,43 @@ function computerplay(){
     return throwVar;
 }
 
-//Getting user input
+//setting up playing loop variable
 
-let userThrow = prompt("What would you like to throw?").toLowerCase();
-let pcThrow = computerplay().toLowerCase();
+let playAgain = true;
+let userThrow;
+let pcThrow;
+
+//Creating the loop
+
+do{
+
+    //Getting user input
+
+    userThrow = prompt("What would you like to throw?").toLowerCase();
+    pcThrow = computerplay().toLowerCase();
 
 
 
 
-// Testing to see who won
-if(userThrow === pcThrow){
-    alert("the pc threw " + pcThrow + "It's a tie!")
-}else if(userThrow === "scissors" && pcThrow === "paper"){
-    alert("the pc threw " + pcThrow + "You win!");
-}else if(userThrow === "rock" && pcThrow === "scissors"){
-    alert("the pc threw " + pcThrow + "You win!");
-}else if(userThrow === "paper" && pcThrow === "rock"){
-    alert("the pc threw " + pcThrow + "You win!");
-}else if((userThrow === "scissors" && pcThrow === "rock") || (userThrow === "paper" && pcThrow === "scissors") || userThrow === "rock" && pcThrow === "paper"){
-    alert("the pc threw " + pcThrow + "You lose!");
-}else{
-    alert("the pc threw " + pcThrow + "Its a tie");
-}
+    // Testing to see who won
+    if(userThrow !== "scissors" && userThrow !== "rock" && userThrow !== "paper"){
+        alert("You didn't choose rock or paper or scissors!")
+    }else if(userThrow === pcThrow){
+        alert("the pc threw " + pcThrow + ". It's a tie!")
+    }else if(userThrow === "scissors" && pcThrow === "paper"){
+        alert("the pc threw " + pcThrow + ". You win!");
+    }else if(userThrow === "rock" && pcThrow === "scissors"){
+        alert("the pc threw " + pcThrow + ". You win!");
+    }else if(userThrow === "paper" && pcThrow === "rock"){
+        alert("the pc threw " + pcThrow + ". You win!");
+    }else if((userThrow === "scissors" && pcThrow === "rock") || (userThrow === "paper" && pcThrow === "scissors") || userThrow === "rock" && pcThrow === "paper"){
+        alert("the pc threw " + pcThrow + ". You lose!");
+    }else{
+        alert("the pc threw " + pcThrow + ". Its a tie");
+    }
+
+    if(!confirm("Would you like to play again?")){
+        playAgain = false;
+    }
+
+} while(playAgain);
