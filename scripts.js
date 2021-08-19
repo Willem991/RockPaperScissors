@@ -22,7 +22,7 @@ function computerplay(){
 
     return throwVar;
 }
-
+//random
 //setting up playing loop variable
 
 let yourScore = 0;
