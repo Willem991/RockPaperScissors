@@ -28,6 +28,8 @@ function computerplay(){
 let yourScore = 0;
 let pcScore = 0;
 
+const score = document.querySelector('#score');
+
 //Creating the loop
 
 function Checker(throwVal){
@@ -39,22 +41,32 @@ function Checker(throwVal){
 
     // Testing to see who won
     if(userThrow === pcThrow){
-        alert("The pc threw " + pcThrow + ". It's a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".")
+        score.textContent = "The pc threw " + pcThrow + ". It's a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".";
     }else if(userThrow === "scissors" && pcThrow === "paper"){
         yourScore++;
-        alert("The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
+        score.textContent = "The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".";
     }else if(userThrow === "rock" && pcThrow === "scissors"){
         yourScore++;
-        alert("The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
+        score.textContent = "The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".";
     }else if(userThrow === "paper" && pcThrow === "rock"){
         yourScore++;
-        alert("The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
+        score.textContent = "The pc threw " + pcThrow + ". You win! Your score is " + yourScore + ". Pc score is " + pcScore + ".";
     }else if((userThrow === "scissors" && pcThrow === "rock") || (userThrow === "paper" && pcThrow === "scissors") || userThrow === "rock" && pcThrow === "paper"){
         pcScore++;
-        alert("The pc threw " + pcThrow + ". You lose! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
+        score.textContent = "The pc threw " + pcThrow + ". You lose! Your score is " + yourScore + ". Pc score is " + pcScore + ".";
     }else{
-        alert("The pc threw " + pcThrow + ". Its a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
+        score.textContent = "The pc threw " + pcThrow + ". Its a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".";
     };
+
+    if(yourScore == 5 ){
+        alert("Bloody Hell! You actually won! Well done!");
+        pcScore = 0;
+        yourScore = 0;
+    }else if(pcScore == 5){
+        alert("Well, you lost. Better luck next time.")
+        pcScore = 0;
+        yourScore = 0;
+    }
 
 }; 
 

@@ -35,18 +35,18 @@
                 
             }
             .fade1{
-                 animation: fadeIn ease 20s;
+                 animation: fadeIn ease 10s;
                  animation-fill-mode: forwards;
 
             }
 
             .fade2{
-                animation: fadeIn2 ease 40s;
+                animation: fadeIn2 ease 20s;
                 animation-fill-mode: forwards;
             }
 
             .fade3{
-                animation: fadeIn3 ease 60s;
+                animation: fadeIn3 ease 30s;
                 animation-fill-mode: forwards;
             }
 
@@ -103,6 +103,15 @@
                 text-align: center;
                 font-weight: 600;
             }
+
+            .score{
+                display: grid;
+                grid-column-start: 3;
+                grid-row-start: 4;
+                font-size: 30px;
+                font-family: 'Style Script';
+                text-align: center;
+            }
         </style>
  
         
@@ -122,6 +131,10 @@
             <button class="mnbtn1" id="rock"><img src="images/rock.png" alt=""></button>
             <button class="mnbtn2" id="paper"><img src="images/paper.png" alt=""></button>
             <button class="mnbtn3" id="scissors"><img src="images/scissors.png" alt=""></button>
+
+            <p id="score" class="score">
+
+            </p>
         </div>
         <script src="scripts.js"></script>
     </body>
