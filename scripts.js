@@ -25,28 +25,20 @@ function computerplay(){
 
 //setting up playing loop variable
 
-let playAgain = true;
-let userThrow;
-let pcThrow;
 let yourScore = 0;
 let pcScore = 0;
 
 //Creating the loop
 
-do{
+function Checker(throwVal){
 
-    //Getting user input
+    let userThrow = throwVal.toLowerCase();
+    let pcThrow = computerplay().toLowerCase();
 
-    userThrow = prompt("What would you like to throw?").toLowerCase();
-    pcThrow = computerplay().toLowerCase();
-
-
-
+    console.log(userThrow);
 
     // Testing to see who won
-    if(userThrow !== "scissors" && userThrow !== "rock" && userThrow !== "paper"){
-        alert("You didn't choose rock or paper or scissors!")
-    }else if(userThrow === pcThrow){
+    if(userThrow === pcThrow){
         alert("The pc threw " + pcThrow + ". It's a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".")
     }else if(userThrow === "scissors" && pcThrow === "paper"){
         yourScore++;
@@ -62,10 +54,22 @@ do{
         alert("The pc threw " + pcThrow + ". You lose! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
     }else{
         alert("The pc threw " + pcThrow + ". Its a tie! Your score is " + yourScore + ". Pc score is " + pcScore + ".");
-    }
+    };
 
-    if(!confirm("Would you like to play again?")){
-        playAgain = false;
-    }
+}; 
 
-} while(playAgain);
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+rockBtn.addEventListener('click', () => {
+    Checker("rock")
+});
+
+paperBtn.addEventListener('click', () => {
+    Checker("paper")
+});
+
+scissorsBtn.addEventListener('click', () => {
+    Checker("scissors")
+});
